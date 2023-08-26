@@ -1,8 +1,11 @@
 SRC =	check_args.c \
+		create_human.c \
+		create_philos.c \
 		ft_atoi.c \
 		ft_strlen.c \
+		ft_zalloc.c \
 		init_t_args.c \
-		set_exit.c \
+		philo.c \
 		skip_list.c 
 OBJ = $(SRC:.c=.o)
 NAME = philo

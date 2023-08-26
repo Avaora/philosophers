@@ -1,6 +1,6 @@
 #include "philo.h"
 
-void	check_args(int argc, char *argv[])
+int	check_args(int argc, char *argv[])
 {
 	int	i;
 	int	x;
@@ -15,11 +15,12 @@ void	check_args(int argc, char *argv[])
 			{
 				x += skip_list(&argv[i][x], "0123456789");
 				if (argv[i][x] != 0x0)
-					set_exit();
+					return (-1);
 			}
 			else
-				set_exit();
+				return (-1);
 		}
 		i++;
 	}
+	return (0);
 }

@@ -19,6 +19,6 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	if ((sum < INT_MIN) || (sum > INT_MAX))
-		set_exit();
+		return (-1);
 	return (sum);
 }
