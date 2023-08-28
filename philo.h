@@ -5,21 +5,23 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <sys/time.h>
 
 typedef struct s_args
 {
-	pthread_t	*thread_id;
-	int			num_of_f;
-	int			num_of_p;
-	int			die_t;
-	int			eat_t;
-	int			slp_t;
-	int			num_of_e;
-	int			someone_died;
+	pthread_mutex_t	*mutex_id;
+	pthread_t		*thread_id;
+	int				num_of_p;
+	int				die_t;
+	int				eat_t;
+	int				slp_t;
+	int				num_of_e;
+	int				someone_died;
 }				t_args;
 typedef struct s_philo
 {
 	t_args	*args;
+	double	last_eat;
 	int		id;
 }				t_philo;
 int		check_args(int argc, char *argv[]);
