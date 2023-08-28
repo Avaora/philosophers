@@ -13,7 +13,7 @@ int	create_philos(t_args *args)
 			return (-1);
 		philo->args = args;
 		philo->id = i + 1;
-		philo->last_eat = 0;
+		philo->last_eat_t = 0;
 		pthread_create(&args->thread_id[i], NULL, create_human, philo);
 		i++;
 	}

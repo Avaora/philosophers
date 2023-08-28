@@ -21,7 +21,8 @@ typedef struct s_args
 typedef struct s_philo
 {
 	t_args	*args;
-	double	last_eat;
+	double	last_eat_t;
+	double	born_t;
 	int		id;
 }				t_philo;
 int		check_args(int argc, char *argv[]);
