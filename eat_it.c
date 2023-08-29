@@ -1,12 +1,11 @@
 #include "philo.h"
 
-double	eat_it(t_philo *philo)
+int	eat_it(t_philo *philo)
 {
-	double	cur_time;
-
-	cur_time = (get_utime() - philo->born_t);
-	printf("%f %d is eating", cur_time, philo->id);
+	if (is_dead(philo) != 0)
+		return (-1);
+	printf("%f %d is eating", (get_utime() - philo->born_t), philo->id);
 	usleep(philo->args->eat_t);
 	philo->last_eat_t = get_utime();
-	return ();
+	philo->eat_c++;
 }

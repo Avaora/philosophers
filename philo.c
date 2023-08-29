@@ -10,6 +10,8 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (init_t_args(argc, argv, &args) == -1)
 			return (1);
+		if (init_threx(&args) == -1)
+			return (1);
 		if (create_philos(&args) == -1)
 			return (1);
 		

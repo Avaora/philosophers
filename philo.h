@@ -9,6 +9,7 @@
 
 typedef struct s_args
 {
+	pthread_mutex_t	c_mutex;
 	pthread_mutex_t	*mutex_id;
 	pthread_t		*thread_id;
 	int				num_of_p;
@@ -16,13 +17,14 @@ typedef struct s_args
 	int				eat_t;
 	int				slp_t;
 	int				num_of_e;
-	int				someone_died;
+	int				is_dead;
 }				t_args;
 typedef struct s_philo
 {
 	t_args	*args;
 	double	last_eat_t;
 	double	born_t;
+	int		eat_c;
 	int		id;
 }				t_philo;
 int		check_args(int argc, char *argv[]);

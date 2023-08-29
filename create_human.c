@@ -11,16 +11,11 @@ void	*create_human(void *arg)
 	philo->last_eat_t = philo->born_t;
 	while (1)
 	{
-		if ((philo->id % 2) == 0)
-		{
-			hold_forks(philo);
-			eat_it(philo);
-			release_forks(philo);
-			sleep_now(philo);
-		}
-		else
-		{
-		}
+		if (hold_forks(philo) == -1)
+			return (philo->);
+		eat_it(philo);
+		release_forks(philo);
+		sleep_now(philo);
 	}
 	return (NULL);
 }
