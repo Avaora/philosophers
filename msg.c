@@ -4,8 +4,6 @@ int	msg(char *str, t_philo *philo)
 {
 	long long	time;
 
-	if (is_finish(philo) != 0)
-		return (-1);
 	if (pthread_mutex_lock(&philo->args->stdout_mutex) != 0)
 		return (-1);
 	time = (get_utime() - philo->args->start_t);

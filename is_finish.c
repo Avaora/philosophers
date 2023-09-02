@@ -7,8 +7,8 @@ int	is_finish(t_philo *philo)
 	args = philo->args;
 	if (pthread_mutex_lock(&args->access_mutex) != 0)
 		return (-1);
-	if (((args->num_of_e != -2) && (args->fed_one >= args->num_of_e))
-		|| (args->is_dead != 0))
+	if ((args->is_dead != 0)
+		|| ((args->num_of_e != -2) && (args->fed_one >= args->num_of_e)))
 	{
 		pthread_mutex_unlock(&philo->args->access_mutex);
 		return (-1);

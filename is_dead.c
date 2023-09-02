@@ -7,7 +7,10 @@ int	is_dead(t_philo *philo)
 		if (pthread_mutex_lock(&philo->args->access_mutex) != 0)
 			return (-1);
 		if (philo->args->is_dead != 0)
+		{
+			pthread_mutex_unlock(&philo->args->access_mutex);
 			return (-1);
+		}
 		philo->args->is_dead = philo->id;
 		pthread_mutex_unlock(&philo->args->access_mutex);
 		return (-1);

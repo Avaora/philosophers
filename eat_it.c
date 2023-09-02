@@ -20,7 +20,5 @@ int	eat_it(t_philo *philo)
 		if (pthread_mutex_unlock(&philo->args->access_mutex) != 0)
 			return (-1);
 	}
-	if (is_finish(philo) != 0)
-		return (-1);
 	return (0);
 }

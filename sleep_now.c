@@ -3,7 +3,10 @@
 int	sleep_now(t_philo *philo)
 {
 	if (is_finish(philo) != 0)
+	{
+		release_forks(philo);
 		return (-1);
+	}
 	if (msg(SLEEPING, philo) != 0)
 		return (-1);
 	if (release_forks(philo) != 0)
