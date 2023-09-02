@@ -40,6 +40,7 @@ typedef struct s_philo
 }				t_philo;
 int			babysit_them(t_args *args);
 int			check_args(int argc, char *argv[]);
+int			check_t_args(t_args *args);
 void		*create_human(void *arg);
 int			create_philos(t_args *args);
 int			destroy_threx(t_args *args);

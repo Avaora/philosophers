@@ -1,5 +1,6 @@
 SRC =	babysit_them.c \
 		check_args.c \
+		check_t_args.c \
 		create_human.c \
 		create_philos.c \
 		destroy_threx.c \
@@ -28,7 +29,7 @@ NAME = philo
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -lpthread
 
 all : $(NAME)
