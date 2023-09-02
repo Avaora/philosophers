@@ -19,8 +19,8 @@ int	destroy_threx(t_args *args)
 		i++;
 	}
 	pthread_mutex_destroy(&args->stdout_mutex);
-	pthread_mutex_destroy(&args->access_mutex);
 	free (args->mutex_id);
 	free (args->thread_id);
+	free (args->philo);
 	return (0);
 }

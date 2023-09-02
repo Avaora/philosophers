@@ -1,8 +1,12 @@
 #include "philo.h"
 
-int	msleep(int msec)
+void	msleep(int msec)
 {
-	if (usleep(msec * 1000) != 0)
-		return (-1);
-	return (0);
+	long long	time;
+
+	time = get_utime() + msec;
+	while (get_utime() < time)
+	{
+		usleep(100);
+	}
 }

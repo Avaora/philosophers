@@ -13,10 +13,12 @@
 # define THINKING "is thinking"
 # define DYING "died"
 
+typedef struct s_philo	t_philo;
+
 typedef struct s_args
 {
+	t_philo			**philo;
 	pthread_mutex_t	stdout_mutex;
-	pthread_mutex_t	access_mutex;
 	pthread_mutex_t	*mutex_id;
 	pthread_t		*thread_id;
 	int				num_of_p;
@@ -24,17 +26,17 @@ typedef struct s_args
 	int				eat_t;
 	int				slp_t;
 	int				num_of_e;
-	int				is_dead;
-	int				fed_one;
 	long long		start_t;
-	long long		dead_t;
 }				t_args;
 typedef struct s_philo
 {
 	t_args			*args;
+	pthread_mutex_t	eat_mutex;
+	pthread_mutex_t	die_mutex;
 	int				lf_id;
 	int				rf_id;
 	long long		last_eat_t;
+	int				am_i_dead;
 	int				eat_c;
 	int				id;
 }				t_philo;
@@ -42,6 +44,7 @@ int			babysit_them(t_args *args);
 int			check_args(int argc, char *argv[]);
 int			check_t_args(t_args *args);
 void		*create_human(void *arg);
+void		create_monitor(t_args *args);
 int			create_philos(t_args *args);
 int			destroy_threx(t_args *args);
 int			eat_it(t_philo *philo);
@@ -53,10 +56,12 @@ long long	get_utime(void);
 int			hold_forks(t_philo *philo);
 int			init_t_args(int argc, char *argv[], t_args *args);
 int			init_threx(t_args *args);
-int			is_dead(t_philo *philo);
 int			is_finish(t_philo *philo);
+int			is_someone_dead(t_args	*args);
+void		kill_them_all(t_args *args);
+void		*monitor(void *arg);
 int			msg(char *str, t_philo *philo);
-int			msleep(int msec);
+void		msleep(int msec);
 int			release_first(t_philo *philo);
 int			release_forks(t_philo *philo);
 int			release_second(t_philo *philo);

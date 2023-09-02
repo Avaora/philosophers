@@ -7,9 +7,6 @@ int	init_t_args(int argc, char *argv[], t_args *args)
 	args->eat_t = ft_atoi(argv[3]);
 	args->slp_t = ft_atoi(argv[4]);
 	args->num_of_e = -2;
-	args->is_dead = 0;
-	args->fed_one = 0;
-	args->dead_t = 0;
 	if (argc == 6)
 		args->num_of_e = ft_atoi(argv[5]);
 	if (check_t_args(args) != 0)

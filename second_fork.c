@@ -16,7 +16,7 @@ int	second_fork(t_philo *philo)
 		{
 			while ((get_utime() - philo->last_eat_t) <= args->die_t)
 				msleep(1);
-			if (is_dead(philo) != 0)
+			if (is_finish(philo) != 0)
 				return (-1);
 		}
 		if (pthread_mutex_lock(&args->mutex_id[philo->lf_id]) != 0)

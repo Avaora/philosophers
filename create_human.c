@@ -19,6 +19,8 @@ void	*create_human(void *arg)
 		if (sleep_now(philo) != 0)
 			break ;
 	}
+	pthread_mutex_destroy(&philo->eat_mutex);
+	pthread_mutex_destroy(&philo->die_mutex);
 	free(philo);
 	return (NULL);
 }

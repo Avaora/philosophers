@@ -2,20 +2,12 @@
 
 int	is_finish(t_philo *philo)
 {
-	t_args	*args;
-
-	args = philo->args;
-	if (pthread_mutex_lock(&args->access_mutex) != 0)
-		return (-1);
-	if ((args->is_dead != 0)
-		|| ((args->num_of_e != -2) && (args->fed_one >= args->num_of_e)))
+	pthread_mutex_lock(&philo->die_mutex);
+	if (philo->am_i_dead == 1)
 	{
-		pthread_mutex_unlock(&philo->args->access_mutex);
+		pthread_mutex_unlock(&philo->die_mutex);
 		return (-1);
 	}
-	if (pthread_mutex_unlock(&philo->args->access_mutex) != 0)
-		return (-1);
-	if (is_dead(philo) != 0)
-		return (-1);
+	pthread_mutex_unlock(&philo->die_mutex);
 	return (0);
 }

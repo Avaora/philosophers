@@ -2,6 +2,7 @@ SRC =	babysit_them.c \
 		check_args.c \
 		check_t_args.c \
 		create_human.c \
+		create_monitor.c \
 		create_philos.c \
 		destroy_threx.c \
 		eat_it.c \
@@ -13,8 +14,10 @@ SRC =	babysit_them.c \
 		hold_forks.c \
 		init_t_args.c \
 		init_threx.c \
-		is_dead.c \
 		is_finish.c \
+		is_someone_dead.c \
+		kill_them_all.c \
+		monitor.c \
 		msg.c \
 		msleep.c \
 		philo.c \
