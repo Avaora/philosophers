@@ -5,7 +5,9 @@ int	init_threx(t_args *args)
 	int	i;
 
 	i = 0;
-	if (pthread_mutex_init(&args->c_mutex, NULL) != 0)
+	if (pthread_mutex_init(&args->access_mutex, NULL) != 0)
+		return (-1);
+	if (pthread_mutex_init(&args->stdout_mutex, NULL) != 0)
 		return (-1);
 	args->mutex_id = ft_zalloc(sizeof(*args->mutex_id) * args->num_of_p);
 	args->thread_id = ft_zalloc(sizeof(*args->thread_id) * args->num_of_p);

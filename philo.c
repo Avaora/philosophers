@@ -14,7 +14,10 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (create_philos(&args) == -1)
 			return (1);
-		
+		if (babysit_them(&args) == -1)
+			return (-1);
+		if (destroy_threx(&args) == -1)
+			return (1);
 	}
 	return (0);
 }

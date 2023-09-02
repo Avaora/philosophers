@@ -5,19 +5,23 @@ int	hold_forks(t_philo *philo)
 	t_args	*args;
 
 	args = philo->args;
-	if (pthread_mutex_lock(&args->mutex_id[(philo->id - 1)]) != 0)
+	if (first_fork(philo) != 0)
 		return (-1);
-	printf("%f %d has taken a fork", (get_utime() - philo->born_t), philo->id);
-	if (philo->id != args->num_of_p)
+	if (is_finish(philo) != 0)
 	{
-		if (pthread_mutex_lock(&args->mutex_id[philo->id]) != 0)
-			return (-1);
+		release_first(philo);
+		return (-1);
 	}
-	else
+	if (msg(PICKING, philo) != 0)
+		return (-1);
+	if (second_fork(philo) != 0)
+		return (-1);
+	if (is_finish(philo) != 0)
 	{
-		if (pthread_mutex_lock(&args->mutex_id[0]) != 0)
-			return (-1);
+		release_second(philo);
+		return (-1);
 	}
-	printf("%f %d has taken a fork", (get_utime() - philo->born_t), philo->id);
+	if (msg(PICKING, philo) != 0)
+		return (-1);
 	return (0);
 }

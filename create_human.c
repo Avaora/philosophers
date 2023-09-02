@@ -8,22 +8,19 @@ void	*create_human(void *arg)
 	philo = arg;
 	args = philo->args;
 	philo->eat_c = 0;
-	if (pthread_create(&philo->svisor_id, NULL, supervisor, philo) != 0)
-		return ();
 	while (1)
 	{
-		printf("%f %d is thinking", (get_utime() - args->start_t), philo->id);
-		pthread_mutex_lock(&args->access_mutex);
-		if (args->is_dead == 1)
-		{
-			printf("%f %d died", (get_utime() - args->start_t), philo->id);
+		if (msg(THINKING, philo) != 0)
 			break ;
-		}
-		pthread_mutex_unlock(&args->access_mutex);
-		hold_forks(philo);
-		eat_it(philo);
-		release_forks(philo);
-		sleep_now(philo);
+		if (is_finish(philo) != 0)
+			break ;
+		if (hold_forks(philo) != 0)
+			break ;
+		if (eat_it(philo) != 0)
+			break ;
+		if (sleep_now(philo) != 0)
+			break ;
 	}
+	free(philo);
 	return (NULL);
 }
