@@ -28,7 +28,7 @@ NAME = philo
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 LFLAGS = -lpthread
 
 all : $(NAME)
