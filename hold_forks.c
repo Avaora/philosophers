@@ -2,9 +2,6 @@
 
 int	hold_forks(t_philo *philo)
 {
-	t_args	*args;
-
-	args = philo->args;
 	if (first_fork(philo) != 0)
 		return (-1);
 	if (is_finish(philo) != 0)

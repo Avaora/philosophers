@@ -7,12 +7,12 @@ int	first_fork(t_philo *philo)
 	args = philo->args;
 	if ((philo->id % 2) == 0)
 	{
-		if (pthread_mutex_lock(&philo->l_fork) != 0)
+		if (pthread_mutex_lock(&args->mutex_id[philo->lf_id]) != 0)
 			return (-1);
 	}
 	else
 	{
-		if (pthread_mutex_lock(&philo->r_fork) != 0)
+		if (pthread_mutex_lock(&args->mutex_id[philo->rf_id]) != 0)
 			return (-1);
 	}
 	return (0);

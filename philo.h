@@ -27,12 +27,13 @@ typedef struct s_args
 	int				is_dead;
 	int				fed_one;
 	long long		start_t;
+	long long		dead_t;
 }				t_args;
 typedef struct s_philo
 {
 	t_args			*args;
-	pthread_mutex_t	l_fork;
-	pthread_mutex_t	r_fork;
+	int				lf_id;
+	int				rf_id;
 	long long		last_eat_t;
 	int				eat_c;
 	int				id;

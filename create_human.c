@@ -3,10 +3,8 @@
 void	*create_human(void *arg)
 {
 	t_philo	*philo;
-	t_args	*args;
 
 	philo = arg;
-	args = philo->args;
 	philo->eat_c = 0;
 	while (1)
 	{

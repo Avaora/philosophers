@@ -8,11 +8,9 @@ int	babysit_them(t_args *args)
 			return (-1);
 		if (args->is_dead != 0)
 		{
-			msleep(6);
 			if (pthread_mutex_lock(&args->stdout_mutex) != 0)
 				return (-1);
-			printf("%lld %d %s\n", (get_utime() - args->start_t),
-				args->is_dead, DYING);
+			printf("%lld %d %s\n", args->dead_t, args->is_dead, DYING);
 			if (pthread_mutex_unlock(&args->stdout_mutex) != 0)
 				return (-1);
 			pthread_mutex_unlock(&args->access_mutex);
