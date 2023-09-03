@@ -6,17 +6,15 @@ void	*create_human(void *arg)
 
 	philo = arg;
 	philo->eat_c = 0;
+	philo->is_eating = 0;
+	philo->am_i_dead = 0;
 	while (1)
 	{
-		if (msg(THINKING, philo) != 0)
-			break ;
-		if (is_finish(philo) != 0)
-			break ;
 		if (hold_forks(philo) != 0)
 			break ;
 		if (eat_it(philo) != 0)
 			break ;
-		if (sleep_now(philo) != 0)
+		if (think(philo) != 0)
 			break ;
 	}
 	pthread_mutex_destroy(&philo->eat_mutex);

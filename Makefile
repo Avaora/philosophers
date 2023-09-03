@@ -1,10 +1,12 @@
 SRC =	babysit_them.c \
 		check_args.c \
+		check_death.c \
 		check_t_args.c \
 		create_human.c \
 		create_monitor.c \
 		create_philos.c \
 		destroy_threx.c \
+		die_msg.c \
 		eat_it.c \
 		first_fork.c \
 		ft_atoi.c \
@@ -26,7 +28,8 @@ SRC =	babysit_them.c \
 		release_second.c \
 		second_fork.c \
 		skip_list.c \
-		sleep_now.c 
+		sleep_now.c \
+		think.c 
 OBJ = $(SRC:.c=.o)
 NAME = philo
 

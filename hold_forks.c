@@ -15,7 +15,7 @@ int	hold_forks(t_philo *philo)
 		return (-1);
 	if (is_finish(philo) != 0)
 	{
-		release_second(philo);
+		release_forks(philo);
 		return (-1);
 	}
 	if (msg(PICKING, philo) != 0)

@@ -12,15 +12,14 @@ int	is_someone_dead(t_args	*args)
 		{
 			pthread_mutex_lock(&args->philo[i]->eat_mutex);
 			time = get_utime();
-			if ((time - args->philo[i]->last_eat_t) >= args->die_t)
+			if ((args->philo[i]->is_eating != 1)
+				&& ((time - args->philo[i]->last_eat_t) >= args->die_t))
 			{
+				if (check_death(args, i) != 0)
+					return (0);
 				pthread_mutex_unlock(&args->philo[i]->eat_mutex);
 				kill_them_all(args);
-				msleep(1);
-				pthread_mutex_lock(&args->stdout_mutex);
-				printf("%lld %d %s\n", time - args->start_t,
-					args->philo[i]->id, DYING);
-				pthread_mutex_unlock(&args->stdout_mutex);
+				die_msg(args, i, time);
 				return (0);
 			}
 			pthread_mutex_unlock(&args->philo[i]->eat_mutex);
