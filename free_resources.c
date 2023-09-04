@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_resources.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalende <ikalende@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/04 16:14:58 by ikalende          #+#    #+#             */
+/*   Updated: 2023/09/04 16:17:10 by ikalende         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	free_resources(t_args *args)
@@ -13,6 +25,7 @@ int	free_resources(t_args *args)
 	}
 	if (destroy_mutexes(args) != 0)
 		return (-1);
+	i = 0;
 	while (i < args->num_of_p)
 	{
 		free(args->philo[i]);

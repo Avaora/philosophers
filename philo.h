@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalende <ikalende@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/04 16:21:38 by ikalende          #+#    #+#             */
+/*   Updated: 2023/09/04 16:22:20 by ikalende         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 # include <unistd.h>
@@ -13,7 +25,7 @@
 # define THINKING "is thinking"
 # define DYING "died"
 
-struct s_philo;
+struct	s_philo;
 
 typedef struct s_args
 {

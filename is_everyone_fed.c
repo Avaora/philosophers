@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_everyone_fed.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalende <ikalende@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/04 16:15:17 by ikalende          #+#    #+#             */
+/*   Updated: 2023/09/04 16:23:17 by ikalende         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	is_everyone_fed(t_args *args)
@@ -14,7 +26,6 @@ int	is_everyone_fed(t_args *args)
 			{
 				args->fed_count++;
 				args->philo[i]->eat_c = -3;
-				
 			}
 			pthread_mutex_unlock(&args->philo[i]->eat_mutex);
 			if (args->fed_count == args->num_of_p)
