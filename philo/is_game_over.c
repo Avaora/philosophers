@@ -28,6 +28,7 @@ int	is_game_over(t_args	*args)
 			if (is_finish(args->philo[i]) != 0)
 				return (-1);
 			kill_them_all(args);
+			msleep(2);
 			die_msg(args, i, time);
 			return (-1);
 		}
