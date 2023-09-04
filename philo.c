@@ -10,13 +10,18 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (init_t_args(argc, argv, &args) == -1)
 			return (1);
-		if (init_threx(&args) == -1)
-			return (1);
 		if (create_philos(&args) == -1)
 			return (1);
-		if (babysit_them(&args) == -1)
+		if (deploy_philos(&args) == -1)
 			return (1);
-		if (destroy_threx(&args) == -1)
+		while (1)
+		{
+			if (is_everyone_fed(&args) != 0)
+				break;
+			if (is_game_over(&args) != 0)
+				break;
+		}
+		if (free_resources(&args) == -1)
 			return (1);
 	}
 	return (0);

@@ -1,25 +1,24 @@
-SRC =	babysit_them.c \
-		check_args.c \
-		check_death.c \
+SRC =	check_args.c \
 		check_t_args.c \
-		create_human.c \
-		create_monitor.c \
 		create_philos.c \
-		destroy_threx.c \
+		deploy_philos.c \
+		destroy_mutexes.c \
 		die_msg.c \
 		eat_it.c \
 		first_fork.c \
+		free_resources.c \
 		ft_atoi.c \
 		ft_strlen.c \
 		ft_zalloc.c \
 		get_utime.c \
 		hold_forks.c \
+		init_mutexes.c \
 		init_t_args.c \
-		init_threx.c \
+		is_everyone_fed.c \
 		is_finish.c \
-		is_someone_dead.c \
+		is_game_over.c \
 		kill_them_all.c \
-		monitor.c \
+		life_cycle.c \
 		msg.c \
 		msleep.c \
 		philo.c \

@@ -6,7 +6,6 @@ int	create_philos(t_args *args)
 	int	i;
 
 	i = 0;
-	args->start_t = get_utime();
 	while (i < args->num_of_p)
 	{
 		philo = ft_zalloc(sizeof(*philo));
@@ -20,10 +19,10 @@ int	create_philos(t_args *args)
 			return (-1);
 		philo->lf_id = i;
 		philo->rf_id = ((i + 1) % args->num_of_p);
-		philo->last_eat_t = args->start_t;
+		philo->am_i_dead = 0;
+		philo->i_am_fed = 0;
+		philo->eat_c = 0;
 		philo->id = i + 1;
-		if (pthread_create(&args->thread_id[i], NULL, create_human, philo) != 0)
-			return (-1);
 		i++;
 	}
 	return (0);
